@@ -1,0 +1,23 @@
+{
+  "name": "demo_reactnative",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "github:neondatabase/serverless",
+    "@upstash/ratelimit": "^2.0.5",
+    "@upstash/redis": "^1.34.9",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1",
+    "upstash": "^0.0.1"
+  }
+}

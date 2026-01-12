@@ -1,0 +1,49 @@
+# ====================
+# React Native
+# ====================
+
+# Dependencies
+node_modules/
+
+# Expo
+.expo/
+.expo-shared/
+web-build/
+
+# Android
+android/.gradle
+android/local.properties
+android/**/DerivedData/
+android/**/Pods/
+android/**/build/
+android/*.iml
+android/captures/
+
+# iOS
+ios/**/DerivedData/
+ios/**/Pods/
+ios/**/build/
+ios/*.mode1v3
+ios/*.mode2v3
+ios/*.moved-aside
+ios/.DS_Store
+
+# Keys & Certificates
+*.keystore
+*.jks
+*.p8
+*.p12
+*.mobileprovision
+*.cer
+
+# Environment
+.env
+.env.local
+
+# Development
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

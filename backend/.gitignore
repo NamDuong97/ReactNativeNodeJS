@@ -1,0 +1,42 @@
+# ====================
+# Node.js Backend
+# ====================
+
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# Build outputs
+dist/
+build/
+.out/
+
+# Coverage
+coverage/
+.nyc_output
+
+# Database files
+*.db
+*.sqlite
+*.sqlite3
+
+# Uploads directory
+uploads/
+temp/
+tmp/
+
+# Docker
+docker-compose.override.yml
+
+# Certificates
+*.pem
+*.crt
+*.key
+
+# Development
+.vscode/
+.idea/
