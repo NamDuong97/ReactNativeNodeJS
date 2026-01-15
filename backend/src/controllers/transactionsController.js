@@ -51,24 +51,26 @@ export async function updateTransactionsByUserId(req, res) {
     }
 }
 
-export async function deleteTransactionsByUserId(req, res) {
+export async function deleteTransaction(req, res) {
     try {
         const { id } = req.params;
 
         if (isNaN(parseInt(id))) {
-            return res.status(400).json({ error: 'Invalid transaction ID' });
+            return res.status(400).json({ message: "Invalid transaction ID" });
         }
 
-        const transactions = await db`DELETE FROM transactions WHERE id = ${id}`;
+        const result = await sql`
+      DELETE FROM transactions WHERE id = ${id} RETURNING *
+    `;
 
-        if (transactions.length === 0) {
-            return res.status(404).json({ error: 'Transaction not found' });
+        if (result.length === 0) {
+            return res.status(404).json({ message: "Transaction not found" });
         }
 
-        res.status(200).json({ message: 'Transaction deleted successfully' });
+        res.status(200).json({ message: "Transaction deleted successfully" });
     } catch (error) {
-        console.error('Error deleting transactions', error);
-        res.status(500).json({ error: 'Failed to delete transactions' });
+        console.log("Error deleting the transaction", error);
+        res.status(500).json({ message: "Internal server error" });
     }
 }
 
