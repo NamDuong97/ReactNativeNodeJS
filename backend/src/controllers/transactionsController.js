@@ -59,7 +59,7 @@ export async function deleteTransaction(req, res) {
             return res.status(400).json({ message: "Invalid transaction ID" });
         }
 
-        const result = await sql`
+        const result = await db`
       DELETE FROM transactions WHERE id = ${id} RETURNING *
     `;
 
