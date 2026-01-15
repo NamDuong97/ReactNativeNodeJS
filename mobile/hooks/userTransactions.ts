@@ -1,21 +1,21 @@
 import { useState, useEffect, useCallback } from 'react';
 import { Alert } from 'react-native';
 import { Int32 } from 'react-native/Libraries/Types/CodegenTypes';
-
-const API_URL = "http://localhost:5001/api";
+import { API_URL } from '../constants/apiUrl';
 
 export const useTransactionsHook = (userId: string) => {
     const [transactions, setTransactions] = useState([]);
+
     const [summary, setSummary] = useState({
         balance: 0,
         income: 0,
         expense: 0,
     });
+
     const [loading, setLoading] = useState(true);
 
     const fetchTransactions = useCallback(async () => {
         try {
-            console.log('API_URL:', API_URL);
             const response = await fetch(`${API_URL}/transactions/${userId}`);
             const data = await response.json();
             setTransactions(data);
@@ -84,7 +84,7 @@ export const useTransactionsHook = (userId: string) => {
         } finally {
             setLoading(false);
         }
-    }, [userId]);
+    }, [fetchTransactions, fetchSummaryTransactions, userId]);
 
     return { transactions, summary, loading, loadData, deleteTransactions, updateTransactions };
 }
