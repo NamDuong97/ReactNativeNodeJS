@@ -18,7 +18,6 @@ const CATEGORY_ICONS = {
 export const TransactionItem = ({ item, onDelete }: { item: any; onDelete: (id: string) => void }) => {
     const isIncome = parseFloat(item.amount) > 0;
     const iconName = CATEGORY_ICONS[item.category as keyof typeof CATEGORY_ICONS] || "pricetag-outline";
-    console.log("Rendering TransactionItem for:", item);
 
     return (
         <View style={styles.transactionCard} key={item.id}>

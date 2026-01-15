@@ -1,8 +1,8 @@
 import SafeScreen from "@/components/SafeScreen";
-import { Stack } from "expo-router";
 import { Slot } from 'expo-router'
 import { ClerkProvider } from '@clerk/clerk-expo'
 import { tokenCache } from '@clerk/clerk-expo/token-cache'
+import { StatusBar } from "react-native";
 
 export default function RootLayout() {
   return (
@@ -10,6 +10,7 @@ export default function RootLayout() {
       <SafeScreen>
         <Slot />
       </SafeScreen>
+      <StatusBar barStyle="dark-content" />
     </ClerkProvider>
   )
 };
