@@ -4,7 +4,7 @@ import rateLimit from 'express-rate-limit';
 // Rate limiter cho toàn bộ app
 export const generalLimiter = rateLimit({
     windowMs: 60 * 1000, // 60 giây
-    max: 4, // Giới hạn 4 requests per windowMs
+    max: 100, // Giới hạn 100 requests per windowMs
     message: {
         error: 'Too many requests from this IP, please try again later.'
     },
