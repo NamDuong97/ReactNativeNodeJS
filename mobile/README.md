@@ -48,3 +48,26 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+
+
+
+// Khi sử dụng expo go trên thiết bị thật, ta cần lấy IP của máy chạy backend để kết nối đúng.
+// Khi sử dụng trình giả lập, ta có thể sử dụng localhost
+
+// ❌ SAI - không hoạt động trên thiết bị
+// const API_URL = 'http://localhost:5001';
+
+// ✅ ĐÚNG
+// Android Emulator
+// const API_URL = 'http://10.0.2.2:5001';
+
+// iOS Simulator
+// const API_URL = 'http://localhost:5001';
+
+// Thiết bị thật - dùng IP máy tính
+// const API_URL = 'http://192.168.1.100:5001';
+
+// Cách 2 để không bị lỗi Network request failed
+// Deploy backend lên cloud và lấy url backend thay vì dùng localhost hay IP như cách bên trên
+// URL backend là: https://reactnativenodejs.onrender.com

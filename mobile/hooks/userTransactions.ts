@@ -3,6 +3,8 @@ import { Alert } from 'react-native';
 import { Int32 } from 'react-native/Libraries/Types/CodegenTypes';
 import { API_URL } from '../constants/apiUrl';
 
+const API_BASE_URL = 'https://reactnativenodejs.onrender.com/api'
+
 export const useTransactionsHook = (userId: string) => {
     const [transactions, setTransactions] = useState([]);
 
@@ -16,7 +18,7 @@ export const useTransactionsHook = (userId: string) => {
 
     const fetchTransactions = useCallback(async () => {
         try {
-            const response = await fetch(`${API_URL}/transactions/${userId}`);
+            const response = await fetch(`${API_BASE_URL}/transactions/${userId}`);
             const data = await response.json();
             setTransactions(data);
         } catch (error) {
@@ -28,7 +30,7 @@ export const useTransactionsHook = (userId: string) => {
 
     const fetchSummaryTransactions = useCallback(async () => {
         try {
-            const response = await fetch(`${API_URL}/transactions/summary/${userId}`);
+            const response = await fetch(`${API_BASE_URL}/transactions/summary/${userId}`);
             const data = await response.json();
             setSummary(data);
         } catch (error) {
@@ -40,7 +42,7 @@ export const useTransactionsHook = (userId: string) => {
 
     const deleteTransactions = async (id: Int32) => {
         try {
-            const response = await fetch(`${API_URL}/transactions/${id}`, { method: "DELETE" });
+            const response = await fetch(`${API_BASE_URL}/transactions/${id}`, { method: "DELETE" });
             if (response.ok) {
                 loadData();
             } else {
@@ -57,7 +59,7 @@ export const useTransactionsHook = (userId: string) => {
 
     const updateTransactions = async (id: Int32, updatedTransaction: any) => {
         try {
-            const response = await fetch(`${API_URL}/transactions/${id}`, {
+            const response = await fetch(`${API_BASE_URL}/transactions/${id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
